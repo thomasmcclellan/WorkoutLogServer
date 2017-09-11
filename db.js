@@ -1,6 +1,6 @@
 var Sequelize = require('sequelize');
 var sequelize = new Sequelize(process.env.DATABASE_URL ||
-'postgres://postgres:PostgresBear2016!@localhost:5432/workoutlog', {
+'postgres://postgres:PostgresBear2016!@localhost:5432/workoutlog2', {
 	dialect: 'postgres'
 });
 
@@ -13,5 +13,7 @@ sequelize.authenticate().then(
 	}
 );
 var User = sequelize.import('./models/user');
+var Log = sequelize.import('./models/log');
+var Definition = sequelize.import('./models/definition');
 
 module.exports = sequelize;

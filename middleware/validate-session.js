@@ -1,3 +1,5 @@
+//Any request passes through this file
+
 var jwt = require('jsonwebtoken');
 var sequelize = require('../db');
 var User = sequelize.import('../models/user');
@@ -14,11 +16,11 @@ module.exports = function(req, res, next){
 						next();
 					}, 
 					function(){
-						res.status(401).send({error: 'Not authorized'});
+						res.status(401).send({error: 'Not authorized'}); //for sessionToken
 					}
 				);
 			} else {
-				res.status(401).send({error: 'Not authorized'});
+				res.status(401).send({error: 'Not authorized'}); //for User
 			}
 		});
 	} else {
