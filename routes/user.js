@@ -18,7 +18,6 @@ router.post('/', function(req, res){
 	User.create({
 		username: username,
 		passwordhash: bcrypt.hashSync(pass, 10),
-		
 		firstName: firstName,
 		lastName: lastName,
 		age: age,
