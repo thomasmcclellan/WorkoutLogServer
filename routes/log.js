@@ -70,7 +70,7 @@ router.put('/', function(req, res){
 	var result = req.body.log.result;
 	var data = req.body.log.id;
 	var definition = req.body.log.def;
-	console.log(req);
+	// console.log(req);
 	Log
 		.update(
 			{

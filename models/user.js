@@ -6,6 +6,6 @@ module.exports = function(sequelize, DataTypes){
 		firstName: DataTypes.STRING,
 		lastName: DataTypes.STRING,
 		age: DataTypes.INTEGER,
-		gender: DataTypes.STRING
+		gender: DataTypes.ENUM('male', 'female')
 	});
 };
