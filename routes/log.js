@@ -1,8 +1,8 @@
 var router = require('express').Router();
-var sequelize = require('../db');
-var Log = sequelize.import('../models/log');
-var User = sequelize.import('../models/user');
-var Definition = sequelize.import('../models/definition');
+var sequelize = require('../db.js');
+var Log = sequelize.import('../models/log.js');
+var User = sequelize.import('../models/user.js');
+// var Definition = sequelize.import('../models/definition.js');
 
 router.post('/', function(req, res){
 	//req has some body properties that have a username and pwd
@@ -10,8 +10,7 @@ router.post('/', function(req, res){
 	var result = req.body.log.result;
 	var definition = req.body.log.def;
 	var user = req.user;
-	
-
+	console.log(req.body)
 	//use our sequelize model to create log 
 	Log
 		.create({
@@ -28,7 +27,7 @@ router.post('/', function(req, res){
 				res.send(500, err.message);
 			}
 		);
-});
+}); 
 
 router.get('/', function(req, res){
 	var userid = req.user.id;
@@ -50,7 +49,7 @@ router.get('/', function(req, res){
 //This will retrieve one workout specified by the log id
 router.get('/:id', function(req, res){
 	var data = req.params.id;
-	//console.log(data); 
+
 	Log
 		.findOne({
 			where: { id: data }
@@ -70,7 +69,7 @@ router.put('/', function(req, res){
 	var result = req.body.log.result;
 	var data = req.body.log.id;
 	var definition = req.body.log.def;
-	// console.log(req);
+
 	Log
 		.update(
 			{
@@ -91,7 +90,7 @@ router.put('/', function(req, res){
 		)
 });
 
-router.delete("/", function(req, res){
+router.delete('/', function(req, res){
 	var data = req.body.log.id;
 	Log
 		.destroy({
