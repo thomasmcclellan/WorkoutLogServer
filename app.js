@@ -14,7 +14,7 @@ var sequelize = require('./db.js');
 var User = sequelize.import('./models/user');
 
 // User.sync();
-User.sync({ force: true }); //DANGER: THIS WILL DROP (DELETE) THE USER TABLE!!!
+// User.sync({ force: true }); //DANGER: THIS WILL DROP (DELETE) THE USER TABLE!!!
 
 sequelize.sync();
 // sequelize.sync({ force: true }); //DANGER: THIS WILL DROP (DELETE) THE USER TABLE!!!
